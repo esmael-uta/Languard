@@ -932,21 +932,19 @@ if __name__ == '__main__':
 
 
 # ... your existing code ...
+# Add this handler for all routes - this is crucial for Amplify
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return render_template('index.html')
 
-# Add this at the very end of the file
 if __name__ == '__main__':
-    # Check if we're running on AWS Amplify
+    # Check if we're running on AWS
     if os.environ.get('AWS_EXECUTION_ENV'):
-        # AWS-specific configuration
-        app.config['UPLOAD_FOLDER'] = '/tmp/uploads'
-        app.config['OUTPUT_FOLDER'] = '/tmp/outputs'
-        
-        # Create directories if they don't exist
-        os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-        os.makedirs(app.config['OUTPUT_FOLDER'], exist_ok=True)
-        
-        # Run on all interfaces
-        app.run(host='0.0.0.0', port=8080)
+        port = 8080
+        host = '0.0.0.0'
+        print(f"Running on AWS Amplify: {host}:{port}")
+        app.run(host=host, port=port, debug=False)
     else:
         # Local development
         app.run(debug=True, host='0.0.0.0', port=5000)

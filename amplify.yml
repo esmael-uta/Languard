@@ -3,17 +3,17 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Installing Python dependencies..."
+        - echo "Installing Python dependencies for Flask..."
+        - pip install --upgrade pip
         - pip install -r requirements.txt
     build:
       commands:
-        - echo "Building the application..."
-        - python -c "print('Build complete')"
+        - echo "Build complete - Flask app ready"
   artifacts:
     baseDirectory: .
     files:
       - '**/*'
   cache:
     paths:
-      - venv/**/*
-      - node_modules/**/*
+      - '**/__pycache__'
+      - '**/venv'
