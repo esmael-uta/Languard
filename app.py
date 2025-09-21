@@ -929,3 +929,24 @@ def download_file(file_type, session_id):
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
+
+# ... your existing code ...
+
+# Add this at the very end of the file
+if __name__ == '__main__':
+    # Check if we're running on AWS Amplify
+    if os.environ.get('AWS_EXECUTION_ENV'):
+        # AWS-specific configuration
+        app.config['UPLOAD_FOLDER'] = '/tmp/uploads'
+        app.config['OUTPUT_FOLDER'] = '/tmp/outputs'
+        
+        # Create directories if they don't exist
+        os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+        os.makedirs(app.config['OUTPUT_FOLDER'], exist_ok=True)
+        
+        # Run on all interfaces
+        app.run(host='0.0.0.0', port=8080)
+    else:
+        # Local development
+        app.run(debug=True, host='0.0.0.0', port=5000)

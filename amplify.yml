@@ -1,0 +1,19 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing Python dependencies..."
+        - pip install -r requirements.txt
+    build:
+      commands:
+        - echo "Building the application..."
+        - python -c "print('Build complete')"
+  artifacts:
+    baseDirectory: .
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - venv/**/*
+      - node_modules/**/*
