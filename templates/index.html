@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Languard - AI Language Preservation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-shield-alt me-2"></i>Languard
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('audio_translation') }}">Audio Translation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('document_translation') }}">Document Translation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('video_translation') }}">Video Translation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('flashcards') }}">Flashcards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('ai_tutor') }}">AI Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cultural_stories') }}">Cultural Stories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('ancient_texts') }}">Ancient Texts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">Preserving Endangered Languages with AI</h1>
+                    <p class="lead">Languard uses cutting-edge artificial intelligence to protect and revitalize endangered Malaysian languages, ensuring they thrive in the digital age.</p>
+                    <div class="mt-4">
+                        <a href="{{ url_for('audio_translation') }}" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-play-circle me-2"></i>Get Started
+                        </a>
+                        <a href="#features" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-info-circle me-2"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Language Preservation" class="img-fluid rounded-circle">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Features</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-file-audio fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">Audio Translation</h4>
+                            <p class="card-text">Convert spoken language in audio files to text and translate between languages with text-to-speech output.</p>
+                            <a href="{{ url_for('audio_translation') }}" class="btn btn-primary">Try Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-file-alt fa-3x text-success mb-3"></i>
+                            <h4 class="card-title">Document Translation</h4>
+                            <p class="card-text">Translate text from PDF, Word, and text documents while preserving formatting and structure.</p>
+                            <a href="{{ url_for('document_translation') }}" class="btn btn-success">Try Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-video fa-3x text-warning mb-3"></i>
+                            <h4 class="card-title">Video Translation</h4>
+                            <p class="card-text">Extract audio from videos, translate the content, and generate translated audio tracks.</p>
+                            <a href="{{ url_for('video_translation') }}" class="btn btn-warning">Try Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-clone fa-3x text-info mb-3"></i>
+                            <h4 class="card-title">Interactive Flashcards</h4>
+                            <p class="card-text">Learn vocabulary with smart flashcards using spaced repetition algorithms.</p>
+                            <a href="{{ url_for('flashcards') }}" class="btn btn-info">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-robot fa-3x text-danger mb-3"></i>
+                            <h4 class="card-title">AI Language Tutor</h4>
+                            <p class="card-text">Personalized language learning with an AI tutor that adapts to your proficiency level.</p>
+                            <a href="{{ url_for('ai_tutor') }}" class="btn btn-danger">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-book fa-3x text-secondary mb-3"></i>
+                            <h4 class="card-title">Cultural Stories</h4>
+                            <p class="card-text">Explore myths, folktales, and oral histories in their original language and translations.</p>
+                            <a href="{{ url_for('cultural_stories') }}" class="btn btn-secondary">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2>About Langaurd</h2>
+                    <p>Languard is an AI-powered platform dedicated to preserving endangered languages, particularly the Orang Asli languages of Malaysia. Our mission is to prevent language extinction by creating digital resources, educational tools, and AI systems that keep these languages alive and accessible.</p>
+                    <p>Using Amazon Web Services and advanced machine learning, we're building a comprehensive ecosystem for language preservation that benefits both current speakers and future generations.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0">Supported Languages</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                {% for lang_name, lang_code in languages.items() %}
+                                <div class="col-md-6 mb-2">
+                                    <i class="fas fa-language me-2 text-primary"></i>{{ lang_name.title() }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt me-2"></i>Languard</h5>
+                    <p>Preserving endangered languages through AI technology</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2023 Langaurd. All rights reserved.</p>
+                    <p>Developed by EraTech</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
